@@ -38,6 +38,7 @@ public class Control {
         this.findControl();
         return control.getAttribute(value);
     }
+
     public void waitClickable()
     {
         WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));

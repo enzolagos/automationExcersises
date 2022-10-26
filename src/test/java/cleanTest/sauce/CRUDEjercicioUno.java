@@ -1,9 +1,7 @@
-package cleanTest;
+package cleanTest.sauce;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pages.HomePage;
-import pages.LoginPage;
 import singletonSession.Session;
 
 public class CRUDEjercicioUno extends TestBaseSwagLabs{

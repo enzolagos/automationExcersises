@@ -1,4 +1,4 @@
-package pages;
+package pages.sauce;
 
 import control.*;
 import org.openqa.selenium.By;

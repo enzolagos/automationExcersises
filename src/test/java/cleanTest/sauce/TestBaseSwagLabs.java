@@ -1,10 +1,10 @@
-package cleanTest;
+package cleanTest.sauce;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import pages.CartPage;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.sauce.CartPage;
+import pages.sauce.HomePage;
+import pages.sauce.LoginPage;
 import singletonSession.Session;
 
 public class TestBaseSwagLabs {
