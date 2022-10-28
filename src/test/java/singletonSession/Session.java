@@ -1,7 +1,9 @@
 package singletonSession;
 
 import factoryBrowser.FactoryBrowser;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -37,5 +39,9 @@ public class Session {
     public void waitURLToChange(String url){
         WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.urlToBe(url));
+    }
+    public Actions newAction(){
+        Actions action = new Actions(this.browser);
+        return action;
     }
 }

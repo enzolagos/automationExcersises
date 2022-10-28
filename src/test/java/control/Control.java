@@ -38,6 +38,9 @@ public class Control {
         this.findControl();
         return control.getAttribute(value);
     }
+    public WebElement getControl(){
+        return this.control;
+    }
 
     public void waitClickable()
     {
