@@ -10,8 +10,8 @@ public class RegisterTest extends TestBaseTickTick{
     @Test
     public void verifyUserCanRegister(){
         //Seteo data
-        String userMail = ""+new Date().getTime()+"@gmail.com";
-        String password = ""+new Date().getTime();
+        String userMail = getAlphaNumericString(6)+"@gmail.com";
+        String password = getAlphaNumericString(6);
         //Registro
         homePage.signUpForFreeButton.click();
         Session.getInstance().waitURLToChange("https://ticktick.com/signup");

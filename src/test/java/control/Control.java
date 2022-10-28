@@ -1,5 +1,6 @@
 package control;
 
+import net.bytebuddy.implementation.bytecode.ShiftRight;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,6 +41,11 @@ public class Control {
     }
     public WebElement getControl(){
         return this.control;
+    }
+
+    public void waitInvisibility(){
+        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(this.locator));
     }
 
     public void waitClickable()

@@ -7,7 +7,7 @@ import singletonSession.Session;
 
 public class ListsTest extends TestBaseTickTick{
     @Test
-    public void verifyUserCanCreateAListAndAddATask() throws InterruptedException {
+    public void verifyUserCanCreateAListAndDeleteIt() throws InterruptedException {
         //login
         homePage.signInButton.click();
         Session.getInstance().waitURLToChange("https://ticktick.com/signin");
@@ -19,9 +19,16 @@ public class ListsTest extends TestBaseTickTick{
         mainPage.addListButton.click();
         mainPage.titleList.setText(projectTitle);
         mainPage.saveButton.click();
-        Assertions.assertTrue(mainPage.createProjectButton(projectTitle).isControlDisplayed(), "El proyecto no se creo");
+        Assertions.assertTrue(mainPage.getListButton(projectTitle).isControlDisplayed(), "El proyecto no se creo");
 
-        Thread.sleep(2000);
-        mainPage.createProjectButton(projectTitle).click();
+        Thread.sleep(3000);
+        //Hay un bug que hace que aparezca un popUp diciendo que el proyecto esta eliminado cuando ni siquiera se crea, sin el thread no puede hacer click en el proyecto y se rompe.
+        mainPage.getListButton(projectTitle).click();
+        mainPage.listOptionsButton(projectTitle).click();
+        mainPage.deleteListButton.click();
+        mainPage.deleteListButton.click();
+        Assertions.assertTrue(mainPage.noListsLabel.isControlDisplayed(), "Error, el proyecto no se elimino");
+        Thread.sleep(3000); //Y este es porque lo borra y sale tan rapido que no se borra fuera del navegador de selenium, aunque sin este thread el test pase igual
+
     }
 }
